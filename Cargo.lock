@@ -678,6 +678,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a7065abeca94b6a8a577f9bd45aa0867a2238b74e8eb67cf10d492bc39351394"
 
 [[package]]
+name = "todo"
+version = "0.1.0"
+dependencies = [
+ "axum",
+ "diesel",
+ "serde",
+ "serde_json",
+ "tokio",
+]
+
+[[package]]
 name = "tokio"
 version = "1.39.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -752,17 +763,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c06d3da6113f116aaee68e4d601191614c9053067f9ab7f6edbcb161237daa54"
 dependencies = [
  "once_cell",
-]
-
-[[package]]
-name = "tutorial"
-version = "0.1.0"
-dependencies = [
- "axum",
- "diesel",
- "serde",
- "serde_json",
- "tokio",
 ]
 
 [[package]]
