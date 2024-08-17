@@ -18,69 +18,23 @@ pub enum Status {
 }
 
 pub fn add(name: &str, description: &str) -> Result<Todo, String> {
-    let mut todos = load_todos()?;
-    if todos.iter().any(|t| t.name == name) {
-        return Err(format!("Todo with name {} already exists", name));
-    }
-    let todo = Todo {
-        name: name.to_string(),
-        description: description.to_string(),
-        status: Status::ToDo,
-    };
-    todos.push(todo.clone());
-    save_todos(&mut todos)?;
-    Ok(todo)
+    todo!()
 }
 
 pub fn edit(name: &str, description: &str) -> Result<Todo, String> {
-    let mut todos = load_todos()?;
-    let todo = todos.iter_mut().find(|t| t.name == name);
-    if todo.is_none() {
-        return Err(format!("Todo with name {} does not exist", name));
-    }
-
-    let todo = match todo {
-        Some(t) => t,
-        None => return Err(format!("Todo with name {} does not exist", name)),
-    };
-
-    todo.description = description.to_string();
-    let n_todo = todo.clone();
-    save_todos(&todos)?;
-    Ok(n_todo)
+    todo!()
 }
 
 pub fn tick(name: &str) -> Result<Todo, String> {
-    let mut todos = load_todos()?;
-    let todo = todos.iter_mut().find(|t| t.name == name);
-    if todo.is_none() {
-        return Err(format!("Todo with name {} does not exist", name));
-    }
-    let todo = match todo {
-        Some(t) => t,
-        None => return Err(format!("Todo with name {} does not exist", name)),
-    };
-    todo.status = Status::Done;
-    let n_todo = todo.clone();
-    save_todos(&todos)?;
-    Ok(n_todo)
+    todo!()
 }
 
 pub fn remove(name: &str) -> Result<(), String> {
-    let mut todos = load_todos()?;
-    match todos.iter().position(|t| t.name == name) {
-        Some(index) => {
-            todos.remove(index);
-            save_todos(&todos)?;
-            Ok(())
-        }
-        None => Err(format!("Todo with name {} does not exist", name)),
-    }
+    todo!()
 }
 
 pub fn list() -> Result<Vec<Todo>, String> {
-    let todos = load_todos()?;
-    Ok(todos)
+    todo!()
 }
 
 fn load_todos() -> Result<Vec<Todo>, String> {
